@@ -1,5 +1,6 @@
 package edu.illinois.cs465.fuzefeed;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -68,6 +69,12 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+
+        else if (id == R.id.action_post_example) {
+            Intent intent = new Intent(this, Example.class);
+            startActivity(intent);
             return true;
         }
 
