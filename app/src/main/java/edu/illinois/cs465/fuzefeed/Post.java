@@ -16,6 +16,15 @@ public class Post {
     private Bitmap image; // null if there isn't an image
     private Bitmap profilePicture;
 
+    public Post (){
+        /*nothing*/
+    }
+
+    // for testing
+    public Post(String content){
+        this.content = content;
+    }
+
     public Post(Platform platform, String username, Date timestamp, String content, Bitmap image, Bitmap profilePicture) {
         this.platform = platform;
         this.username = username;

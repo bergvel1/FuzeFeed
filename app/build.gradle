@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 25 // 23
     buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "edu.illinois.cs465.fuzefeed"
         minSdkVersion 21
-        targetSdkVersion 25
+        targetSdkVersion 25 // 23
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -26,6 +26,9 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.0.0'
     compile 'com.android.support:support-v4:25.0.0'
+//    compile 'com.android.support:appcompat-v7:23.3.0'
+//    compile 'com.android.support:support-v4:23.3.0'
     compile 'com.android.support:design:25.0.0'
+//    compile 'com.android.support:design:23.3.0'
     testCompile 'junit:junit:4.12'
 }
