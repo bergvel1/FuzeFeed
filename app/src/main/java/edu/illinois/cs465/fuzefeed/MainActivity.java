@@ -25,6 +25,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity{
 
     // stuff for hamburger menu
+    private DataCreator dc;
     private DrawerLayout mDrawerLayout;
     ExpandableListAdapter mMenuAdapter;
     ExpandableListView expandableList;
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         // setup button for adding posts
+        dc = new DataCreator(this);
         preparePostButton();
 
         // toolbar and hamburger menu setup
@@ -198,9 +200,13 @@ public class MainActivity extends AppCompatActivity{
     private void prepareDummyFeeds(){
         listView = (ListView) findViewById(R.id.list);
 
+        List<Post> dummyPosts = dc.getSocialPosts();
+        List<Post> dummyEmails = dc.getEmails();
+
         socialFeedItems = new ArrayList<Post>();
         proFeedItems = new ArrayList<Post>();
         emailFeedItems = new ArrayList<Post>();
+
 
         socialListAdapter = new FeedListAdapter(this, socialFeedItems);
         proListAdapter = new FeedListAdapter(this, proFeedItems);
@@ -210,35 +216,21 @@ public class MainActivity extends AppCompatActivity{
         listView.setAdapter(socialListAdapter);
         currAdapter = 0;
 
-        // some placeholder posts
-        Post socialItem1 = new Post(Platform.FACEBOOK,"here's a facebook post");
-        Post socialItem2 = new Post(Platform.INSTAGRAM,"here's an instagram post");
-        Post proItem1 = new Post(Platform.TWITTER,"business");
-        Post emailItem1 = new Post(Platform.EMAIL,"here's an email");
-        socialFeedItems.add(socialItem1);
-        socialFeedItems.add(socialItem2);
-        socialFeedItems.add(socialItem2);
-        socialFeedItems.add(socialItem1);
-        socialFeedItems.add(socialItem2);
-        socialFeedItems.add(socialItem1);
-        socialFeedItems.add(socialItem1);
-        socialFeedItems.add(socialItem2);
-        proFeedItems.add(proItem1);
-        proFeedItems.add(proItem1);
-        proFeedItems.add(proItem1);
-        proFeedItems.add(proItem1);
-        proFeedItems.add(proItem1);
-        proFeedItems.add(proItem1);
-        proFeedItems.add(proItem1);
-        proFeedItems.add(proItem1);
-        emailFeedItems.add(emailItem1);
-        emailFeedItems.add(emailItem1);
-        emailFeedItems.add(emailItem1);
-        emailFeedItems.add(emailItem1);
-        emailFeedItems.add(emailItem1);
-        emailFeedItems.add(emailItem1);
-        emailFeedItems.add(emailItem1);
-        emailFeedItems.add(emailItem1);
+        for (int i = 0; i < 9; i += 3) {
+            socialFeedItems.add(dummyPosts.get(i));
+        }
+
+        for (int i = 1; i < 9; i += 3) {
+            socialFeedItems.add(dummyPosts.get(i));
+        }
+
+        for (int i = 2; i < 9; i += 3) {
+            socialFeedItems.add(dummyPosts.get(i));
+        }
+
+        for (int i = 0; i < 3; i++) {
+            emailFeedItems.add(dummyEmails.get(i));
+        }
 
         socialListAdapter.notifyDataSetChanged();
         proListAdapter.notifyDataSetChanged();

@@ -19,7 +19,7 @@ public final class DataCreator {
     private List<Post> instagramPosts;
     private List<Post> linkedinPosts;
     private List<Post> socialPosts;
-    private List<Email> emails;
+    private List<Post> emails;
     private List<Account> accounts;
 
     public DataCreator(Context context) {
@@ -119,19 +119,19 @@ public final class DataCreator {
 
         emails = new ArrayList<>();
 
-        getEmails().add(new Email("Brian Kurek",
+        getEmails().add(new Post("Brian Kurek",
                 "Example subject",
                 "This is an example email.",
                 new Date(1477936731000L),
                 "Gmail"));
 
-        getEmails().add(new Email("David Bervelt",
+        getEmails().add(new Post("David Bervelt",
                 "Another email",
                 "Yet another example of an email.",
                 new Date(1479059931000L),
                 "Gmail"));
 
-        getEmails().add(new Email("Deekshant Kaul",
+        getEmails().add(new Post("Deekshant Kaul",
                 "We did it",
                 "Guys look, we actually support viewing emails.",
                 new Date(1479059931000L),
@@ -169,7 +169,7 @@ public final class DataCreator {
         return linkedinPosts;
     }
 
-    public List<Email> getEmails() {
+    public List<Post> getEmails() {
         return emails;
     }
 
@@ -192,7 +192,7 @@ public final class DataCreator {
         socialPosts.add(p);
     }
 
-    public void addEmail(Email e) {
+    public void addEmail(Post e) {
         emails.add(e);
     }
 

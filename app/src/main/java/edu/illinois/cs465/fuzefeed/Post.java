@@ -15,6 +15,10 @@ public class Post {
     private String content; // null if there isn't text content
     private Bitmap image; // null if there isn't an image
     private Bitmap profilePicture;
+    private String sender;
+    private String subject;
+    private String preview;
+    private String emailPlatform;
 
     public Post (){
         /*nothing*/
@@ -36,6 +40,14 @@ public class Post {
         this.content = content;
         this.image = image;
         this.profilePicture = profilePicture;
+    }
+
+    public Post(String sender, String subject, String preview, Date timestamp, String emailPlatform) {
+        this.sender = sender;
+        this.subject = subject;
+        this.preview = preview;
+        this.timestamp = timestamp;
+        this.emailPlatform = emailPlatform;
     }
 
     public Platform getPlatform() {
@@ -60,5 +72,21 @@ public class Post {
 
     public Bitmap getProfilePicture() {
         return profilePicture;
+    }
+
+    public String getSender() {
+        return sender;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public String getPreview() {
+        return preview;
+    }
+
+    public String getEmailPlatform() {
+        return emailPlatform;
     }
 }
