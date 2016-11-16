@@ -27,17 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/accountaddbutton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:paddingRight="10dp"
-                android:background="@null"
-                android:src="@mipmap/ic_add_circle_outline_black_24dp"/>
-            <!--Put this in eventually-->
-            <!--<ImageButton
+            <!--<ImageView
                 android:id="@+id/accountaddbutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,6 +36,16 @@
                 android:paddingRight="10dp"
                 android:background="@null"
                 android:src="@mipmap/ic_add_circle_outline_black_24dp"/>-->
+            <!--Put this in eventually-->
+            <ImageButton
+                android:id="@+id/accountaddbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:paddingRight="10dp"
+                android:background="@null"
+                android:src="@mipmap/ic_add_circle_outline_black_24dp"/>
         </RelativeLayout>
 
 

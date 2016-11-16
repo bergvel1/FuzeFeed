@@ -2,6 +2,7 @@ package edu.illinois.cs465.fuzefeed;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.widget.CheckedTextView;
 import android.widget.ExpandableListView;
 
 import android.content.Context;
@@ -9,6 +10,7 @@ import android.graphics.Typeface;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,10 +26,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private List<ExpandedMenuModel> mListDataHeader; // header titles
 
     // child data in format of header title, child title
-    private HashMap<ExpandedMenuModel, List<String>> mListDataChild;
+    private HashMap<ExpandedMenuModel, List<Account>> mListDataChild;
     ExpandableListView expandList;
 
-    public ExpandableListAdapter(Context context, List<ExpandedMenuModel> listDataHeader, HashMap<ExpandedMenuModel, List<String>> listChildData, ExpandableListView mView) {
+    public ExpandableListAdapter(Context context, List<ExpandedMenuModel> listDataHeader, HashMap<ExpandedMenuModel, List<Account>> listChildData, ExpandableListView mView) {
         this.mContext = context;
         this.mListDataHeader = listDataHeader;
         this.mListDataChild = listChildData;
@@ -43,11 +45,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        int childCount = 0;
-        if (groupPosition != 2) {
-            childCount = this.mListDataChild.get(this.mListDataHeader.get(groupPosition))
-                    .size();
-        }
+        int childCount = this.mListDataChild.get(this.mListDataHeader.get(groupPosition))
+                .size();
         return childCount;
     }
 
@@ -80,12 +79,24 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        ExpandedMenuModel headerTitle = (ExpandedMenuModel) getGroup(groupPosition);
+    public View getGroupView(final int groupPosition, final boolean isExpanded, View convertView, ViewGroup parent) {
+        final ExpandedMenuModel headerTitle = (ExpandedMenuModel) getGroup(groupPosition);
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this.mContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = infalInflater.inflate(R.layout.listheader, null);
+
+            final ImageButton addAccountButton = (ImageButton) convertView.findViewById(R.id.accountaddbutton);
+            addAccountButton.setFocusable(false);
+            addAccountButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (!expandList.isGroupExpanded(groupPosition)) expandList.expandGroup(groupPosition);
+
+                    MainActivity.addAccount(groupPosition);
+                    notifyDataSetChanged();
+                }
+            });
         }
         TextView lblListHeader = (TextView) convertView
                 .findViewById(R.id.submenu);
@@ -95,8 +106,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        final String childText = (String) getChild(groupPosition, childPosition);
+    public View getChildView(final int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+        final Account childAccount = (Account) getChild(groupPosition, childPosition);
 
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this.mContext
@@ -104,10 +115,24 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             convertView = infalInflater.inflate(R.layout.list_submenu, null);
         }
 
-        TextView txtListChild = (TextView) convertView
+        final ImageButton delAccountButton = (ImageButton) convertView.findViewById(R.id.accountdelbutton);
+        delAccountButton.setFocusable(false);
+        delAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.removeAccount(groupPosition,childPosition);
+                notifyDataSetChanged();
+            }
+        });
+
+        CheckedTextView txtListChild = (CheckedTextView) convertView
                 .findViewById(R.id.submenu);
 
-        txtListChild.setText(childText);
+        txtListChild.setText(childAccount.getUsername());
+
+        // determine if account should be highlighted
+        Account thisAccount = (MainActivity.getAccounts(groupPosition)).get(childPosition);
+        txtListChild.setChecked(thisAccount.getStatus());
 
         return convertView;
     }

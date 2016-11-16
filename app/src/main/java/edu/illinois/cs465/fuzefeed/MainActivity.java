@@ -14,7 +14,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ExpandableListView;
-import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -28,17 +27,20 @@ public class MainActivity extends AppCompatActivity{
     ExpandableListAdapter mMenuAdapter;
     ExpandableListView expandableList;
     List<ExpandedMenuModel> listDataHeader;
-    HashMap<ExpandedMenuModel, List<String>> listDataChild;
+    HashMap<ExpandedMenuModel, List<Account>> listDataChild;
 
     // feed selectors
     private Button socialSelector;
     private Button proSelector;
     private Button emailSelector;
 
+    // lists of different types of accounts
+    private static List<Account> socialAccounts;
+    private static List<Account> proAccounts;
+    private static List<Account> emailAccounts;
+
     // stuff for feed
     private ListView listView;
-    private FeedListAdapter listAdapter;
-    private List<Post> feedItems;
 
     // this is not ideal
     private int currAdapter;
@@ -58,27 +60,7 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         // setup button for adding posts
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(currAdapter == 0){
-                    Post newItem = new Post("IT'S A BRAND NEW SOCIAL POST");
-                    socialFeedItems.add(0,newItem);
-                    socialListAdapter.notifyDataSetChanged();
-                }
-                if(currAdapter == 1){
-                    Post newItem = new Post("NEW BUSINESS IS HAPPENING");
-                    proFeedItems.add(0,newItem);
-                    proListAdapter.notifyDataSetChanged();
-                }
-                if(currAdapter == 2){
-                    Post newItem = new Post("NEW EMAIL");
-                    emailFeedItems.add(0,newItem);
-                    emailListAdapter.notifyDataSetChanged();
-                }
-            }
-        });
+        preparePostButton();
 
         // toolbar and hamburger menu setup
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -89,6 +71,7 @@ public class MainActivity extends AppCompatActivity{
         ab.setDisplayHomeAsUpEnabled(true);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         expandableList = (ExpandableListView) findViewById(R.id.navigationmenu);
+        //expandableList.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 
         if (navigationView != null) {
@@ -103,9 +86,14 @@ public class MainActivity extends AppCompatActivity{
 
         expandableList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
-            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long l) {
                 Log.d("DEBUG", "submenu item clicked");
-                return false;
+
+                Account thisAccount = (getAccounts(groupPosition)).get(childPosition);
+                thisAccount.setStatus(!(thisAccount.getStatus()));
+                mMenuAdapter.notifyDataSetChanged();
+
+                return false; // ???
             }
         });
         expandableList.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
@@ -116,6 +104,24 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+        // set up bottom navigation buttons
+        prepareFeedSelectors();
+
+        // generate fake feed data
+        prepareDummyFeeds();
+    }
+
+    private void preparePostButton(){
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addPost(currAdapter);
+            }
+        });
+    }
+
+    private void prepareFeedSelectors(){
         // buttons to choose between feeds
         socialSelector = (Button) findViewById(R.id.social_selector);
         proSelector = (Button) findViewById(R.id.pro_selector);
@@ -143,9 +149,48 @@ public class MainActivity extends AppCompatActivity{
                 currAdapter = 2;
             }
         });
+    }
 
+    private void prepareListData() {
+        listDataHeader = new ArrayList<ExpandedMenuModel>();
+        listDataChild = new HashMap<ExpandedMenuModel, List<Account>>();
 
-        // feed stuff
+        socialAccounts = new ArrayList<Account>();
+        proAccounts = new ArrayList<Account>();
+        emailAccounts = new ArrayList<Account>();
+
+        ExpandedMenuModel item1 = new ExpandedMenuModel();
+        item1.setIconName("Social");
+        // Adding data header
+        listDataHeader.add(item1);
+
+        ExpandedMenuModel item2 = new ExpandedMenuModel();
+        item2.setIconName("Professional");
+        listDataHeader.add(item2);
+
+        ExpandedMenuModel item3 = new ExpandedMenuModel();
+        item3.setIconName("Email");
+        listDataHeader.add(item3);
+
+        Account facebook = new Account(Platform.FACEBOOK,"example facebook",true);
+        Account twitter = new Account(Platform.TWITTER,"example twitter",true);
+        socialAccounts.add(facebook);
+        socialAccounts.add(twitter);
+
+        Account linkedin = new Account(Platform.LINKEDIN,"example linkedin",true);
+        proAccounts.add(linkedin);
+
+        Account email1 = new Account(Platform.EMAIL,"email1",true);
+        Account email2 = new Account(Platform.EMAIL,"email2",true);
+        emailAccounts.add(email1);
+        emailAccounts.add(email2);
+
+        listDataChild.put(listDataHeader.get(0), socialAccounts);// Header, Child data
+        listDataChild.put(listDataHeader.get(1), proAccounts);
+        listDataChild.put(listDataHeader.get(2), emailAccounts);
+    }
+
+    private void prepareDummyFeeds(){
         listView = (ListView) findViewById(R.id.list);
 
         socialFeedItems = new ArrayList<Post>();
@@ -193,37 +238,6 @@ public class MainActivity extends AppCompatActivity{
         proListAdapter.notifyDataSetChanged();
         emailListAdapter.notifyDataSetChanged();
     }
-    
-    private void prepareListData() {
-        listDataHeader = new ArrayList<ExpandedMenuModel>();
-        listDataChild = new HashMap<ExpandedMenuModel, List<String>>();
-
-        ExpandedMenuModel item1 = new ExpandedMenuModel();
-        item1.setIconName("Social");
-        // Adding data header
-        listDataHeader.add(item1);
-
-        ExpandedMenuModel item2 = new ExpandedMenuModel();
-        item2.setIconName("Professional");
-        listDataHeader.add(item2);
-
-        ExpandedMenuModel item3 = new ExpandedMenuModel();
-        item3.setIconName("Email");
-        listDataHeader.add(item3);
-
-        // Adding child data
-        List<String> heading1 = new ArrayList<String>();
-        heading1.add("Submenu of item 1");
-
-        List<String> heading2 = new ArrayList<String>();
-        heading2.add("Submenu of item 2");
-        heading2.add("Submenu of item 2");
-        heading2.add("Submenu of item 2");
-
-        listDataChild.put(listDataHeader.get(0), heading1);// Header, Child data
-        listDataChild.put(listDataHeader.get(1), heading2);
-
-    }
 
     @Override
     public void onBackPressed() {
@@ -243,7 +257,6 @@ public class MainActivity extends AppCompatActivity{
         return true;
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -256,7 +269,7 @@ public class MainActivity extends AppCompatActivity{
 
     private void setupDrawerContent(NavigationView navigationView) {
 
-        //revision: this don't works, use setOnChildClickListener() and setOnGroupClickListener() above instead
+        /*//revision: this don't works, use setOnChildClickListener() and setOnGroupClickListener() above instead
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -265,6 +278,83 @@ public class MainActivity extends AppCompatActivity{
                         mDrawerLayout.closeDrawers();
                         return true;
                     }
-                });
+                });*/
+    }
+
+    public static boolean addAccount(int feedID){
+        switch (feedID){
+            case 0: {
+                    Account newAccount = new Account(Platform.FACEBOOK,"new facebook",true);
+                    socialAccounts.add(newAccount);
+                    return true;
+            }
+            case 1: {
+                    Account newAccount = new Account(Platform.LINKEDIN,"new linkedin",true);
+                    proAccounts.add(newAccount);
+                    return true;
+            }
+            case 2: {
+                    Account newAccount = new Account(Platform.EMAIL,"new email",true);
+                    emailAccounts.add(newAccount);
+                    return true;
+            }
+        }
+        Log.d("DEBUG","Error adding account");
+        return false;
+    }
+
+    public static boolean removeAccount(int feedID,int accountID){
+        switch (feedID){
+            case 0: {
+                    socialAccounts.remove(accountID);
+                    return true;
+            }
+            case 1: {
+                    proAccounts.remove(accountID);
+                    return true;
+            }
+            case 2: {
+                    emailAccounts.remove(accountID);
+                    return true;
+            }
+        }
+        Log.d("DEBUG","Error removing account (invalid feed)");
+        return false;
+    }
+
+    public boolean addPost(int feedID){
+        switch (feedID){
+            case 0: {
+                    Post newItem = new Post("IT'S A BRAND NEW SOCIAL POST");
+                    socialFeedItems.add(0,newItem);
+                    socialListAdapter.notifyDataSetChanged();
+                    return true;
+            }
+            case 1: {
+                    Post newItem = new Post("NEW BUSINESS IS HAPPENING");
+                    proFeedItems.add(0,newItem);
+                    proListAdapter.notifyDataSetChanged();
+                    return true;
+            }
+            case 2: {
+                    Post newItem = new Post("NEW EMAIL");
+                    emailFeedItems.add(0,newItem);
+                    emailListAdapter.notifyDataSetChanged();
+                    return true;
+            }
+        }
+        Log.d("DEBUG","Error adding post");
+        return false;
+    }
+
+    public static List<Account> getAccounts(int idx){
+        switch (idx){
+            case 0: return socialAccounts;
+            case 1: return proAccounts;
+            case 2: return emailAccounts;
+        }
+        // should not be reached
+        Log.d("DEBUG","Bad getAccounts()");
+        return null;
     }
 }
