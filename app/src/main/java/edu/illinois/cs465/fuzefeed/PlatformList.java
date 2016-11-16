@@ -15,7 +15,7 @@ import android.widget.ListView;
 public class PlatformList extends Activity {
     Button continueButton;
     Button cancelPostButton;
-    PostPlatform[] platforms = {new PostPlatform("Facebook"), new PostPlatform("Twitter"), new PostPlatform("Instagram"), new PostPlatform("Reddit")};
+    PostPlatform[] platforms = {new PostPlatform("Facebook"), new PostPlatform("Twitter"), new PostPlatform("Instagram")};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
