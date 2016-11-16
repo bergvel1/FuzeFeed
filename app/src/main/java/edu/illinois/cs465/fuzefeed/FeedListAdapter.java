@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 /**
@@ -52,19 +54,41 @@ public class FeedListAdapter extends BaseAdapter {
             case FACEBOOK: {
                 if (convertView == null)
                     convertView = inflater.inflate(R.layout.facebook_item, null);
-                // populate data fields
+                // get data fields
+                TextView username = (TextView) convertView.findViewById(R.id.username);
+                TextView timestamp = (TextView) convertView.findViewById(R.id.timestamp);
+                TextView content = (TextView) convertView.findViewById(R.id.content);
+                // populate
+                username.setText(item.getUsername());
+                timestamp.setText(item.getTimestamp().toString());
+                content.setText(item.getContent());
+
                 return convertView;
             }
             case TWITTER: {
                 if (convertView == null)
                     convertView = inflater.inflate(R.layout.twitter_item, null);
-                // populate data fields
+                // get data fields
+                TextView username = (TextView) convertView.findViewById(R.id.username);
+                TextView timestamp = (TextView) convertView.findViewById(R.id.timestamp);
+                TextView content = (TextView) convertView.findViewById(R.id.content);
+                // populate
+                username.setText(item.getUsername());
+                timestamp.setText(item.getTimestamp().toString());
+                content.setText(item.getContent());
+
                 return convertView;
             }
             case INSTAGRAM: {
                 if (convertView == null)
                     convertView = inflater.inflate(R.layout.instagram_item, null);
-                // populate data fields
+                // get data fields
+                TextView username = (TextView) convertView.findViewById(R.id.username);
+                TextView timestamp = (TextView) convertView.findViewById(R.id.timestamp);
+                // populate
+                username.setText(item.getUsername());
+                timestamp.setText(item.getTimestamp().toString());
+
                 return convertView;
             }
             case LINKEDIN: {
@@ -75,7 +99,19 @@ public class FeedListAdapter extends BaseAdapter {
             case EMAIL: {
                 if (convertView == null)
                     convertView = inflater.inflate(R.layout.email_item, null);
-                // populate data fields
+                // get data fields
+                TextView sender = (TextView) convertView.findViewById(R.id.sender);
+                TextView timestamp = (TextView) convertView.findViewById(R.id.timestamp);
+                TextView preview = (TextView) convertView.findViewById(R.id.preview);
+                TextView service = (TextView) convertView.findViewById(R.id.service);
+                TextView subject = (TextView) convertView.findViewById(R.id.subject);
+                // populate
+                sender.setText(item.getSender());
+                timestamp.setText(item.getTimestamp().toString());
+                preview.setText(item.getPreview());
+                service.setText(item.getEmailPlatform());
+                subject.setText(item.getSubject());
+
                 return convertView;
             }
         }
