@@ -1,4 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+
+        android:layout_marginLeft="@dimen/feed_item_margin"
+        android:layout_marginRight="@dimen/feed_item_margin"
+        android:layout_marginTop="@dimen/feed_item_margin"
+        android:background="@drawable/bg_parent_rounded_corner"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_height = "wrap_content"
+            android:layout_width = "match_parent"
+            android:paddingBottom="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp"
+            android:orientation= "vertical">
+
+            <LinearLayout
+                android:layout_height = "wrap_content"
+                android:layout_width = "match_parent"
+                android:orientation= "horizontal">
+
+                <CheckBox
+                    android:id="@+id/check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:text="Brian Kurek"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/username"
+                        android:textSize="20dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:text="7hrs ago"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/timestamp"
+                        android:textSize="10dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignTop="@id/username"/>
+
+                    <TextView
+                        android:text="Gmail"
+                        android:layout_height = "wrap_content"
+                        android:layout_width = "wrap_content"
+                        android:id="@+id/service"
+                        android:textSize="10dp"
+                        android:layout_below="@id/timestamp"
+                        android:layout_alignRight="@id/timestamp"
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:text="Subject"
+                android:layout_height = "wrap_content"
+                android:layout_width = "match_parent"
+                android:id="@+id/subject"
+                android:textSize="15dp"
+                />
+
+            <TextView
+                android:text="Yet another example of an email."
+                android:layout_height = "wrap_content"
+                android:layout_width = "match_parent"
+                android:id="@+id/bodytext"
+                android:textSize="10dp"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
+
+<!--
+<?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -83,4 +175,5 @@
 
 
 </LinearLayout>
+-->
 
