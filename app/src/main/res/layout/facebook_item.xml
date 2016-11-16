@@ -59,13 +59,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
                 android:src="@raw/flower"
-                android:id="@+id/image"
+                android:id="@+id/post_image"
                 android:paddingTop="10dp"
                 android:gravity="">
             </ImageView>
 
             <LinearLayout
-                android:layout_height = "match_parent"
+                android:layout_height = "wrap_content"
                 android:layout_width = "match_parent"
                 android:orientation= "horizontal">
 

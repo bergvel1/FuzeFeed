@@ -46,6 +46,7 @@
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/post_image"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:src="@raw/road"
@@ -54,7 +55,7 @@
             </ImageView>
 
             <LinearLayout
-                android:layout_height = "match_parent"
+                android:layout_height = "wrap_content"
                 android:layout_width = "match_parent"
                 android:orientation= "horizontal">
 

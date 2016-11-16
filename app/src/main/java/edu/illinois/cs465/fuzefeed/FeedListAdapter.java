@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -58,10 +59,12 @@ public class FeedListAdapter extends BaseAdapter {
                 TextView username = (TextView) convertView.findViewById(R.id.username);
                 TextView timestamp = (TextView) convertView.findViewById(R.id.timestamp);
                 TextView content = (TextView) convertView.findViewById(R.id.content);
+                ImageView image = (ImageView) convertView.findViewById(R.id.post_image);
                 // populate
                 username.setText(item.getUsername());
                 timestamp.setText(item.getTimestamp().toString());
                 content.setText(item.getContent());
+                //image.setVisibility(View.INVISIBLE);
 
                 return convertView;
             }
@@ -72,10 +75,12 @@ public class FeedListAdapter extends BaseAdapter {
                 TextView username = (TextView) convertView.findViewById(R.id.username);
                 TextView timestamp = (TextView) convertView.findViewById(R.id.timestamp);
                 TextView content = (TextView) convertView.findViewById(R.id.content);
+                ImageView image = (ImageView) convertView.findViewById(R.id.post_image);
                 // populate
                 username.setText(item.getUsername());
                 timestamp.setText(item.getTimestamp().toString());
                 content.setText(item.getContent());
+                //image.setVisibility(View.INVISIBLE);
 
                 return convertView;
             }
@@ -85,9 +90,11 @@ public class FeedListAdapter extends BaseAdapter {
                 // get data fields
                 TextView username = (TextView) convertView.findViewById(R.id.username);
                 TextView timestamp = (TextView) convertView.findViewById(R.id.timestamp);
+                ImageView image = (ImageView) convertView.findViewById(R.id.post_image);
                 // populate
                 username.setText(item.getUsername());
                 timestamp.setText(item.getTimestamp().toString());
+                //image.setImageBitmap(item.getImage());
 
                 return convertView;
             }
