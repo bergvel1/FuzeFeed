@@ -42,11 +42,12 @@ public class Post {
         this.profilePicture = profilePicture;
     }
 
-    public Post(String sender, String subject, String preview, Date timestamp, String emailPlatform) {
+    public Post(String sender, String subject, String preview, Date timestamp, String emailPlatform, Platform platform) {
         this.sender = sender;
         this.subject = subject;
         this.preview = preview;
         this.timestamp = timestamp;
+        this.platform = platform;
         this.emailPlatform = emailPlatform;
     }
 

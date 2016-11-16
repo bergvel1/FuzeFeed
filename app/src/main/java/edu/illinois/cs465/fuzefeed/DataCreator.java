@@ -123,19 +123,22 @@ public final class DataCreator {
                 "Example subject",
                 "This is an example email.",
                 new Date(1477936731000L),
-                "Gmail"));
+                "Gmail",
+                Platform.EMAIL));
 
         getEmails().add(new Post("David Bervelt",
                 "Another email",
                 "Yet another example of an email.",
                 new Date(1479059931000L),
-                "Gmail"));
+                "Gmail",
+                Platform.EMAIL));
 
         getEmails().add(new Post("Deekshant Kaul",
                 "We did it",
                 "Guys look, we actually support viewing emails.",
                 new Date(1479059931000L),
-                "Hotmail"));
+                "Hotmail",
+                Platform.EMAIL));
 
         socialPosts = new ArrayList<>();
         getSocialPosts().addAll(facebookPosts);
