@@ -53,48 +53,51 @@ public class FeedListAdapter extends BaseAdapter {
 
         switch (item.getPlatform()){
             case FACEBOOK: {
-                if (convertView == null)
+                if (convertView == null) {
                     convertView = inflater.inflate(R.layout.facebook_item, null);
-                // get data fields
-                TextView username = (TextView) convertView.findViewById(R.id.username);
-                TextView timestamp = (TextView) convertView.findViewById(R.id.timestamp);
-                TextView content = (TextView) convertView.findViewById(R.id.content);
-                ImageView image = (ImageView) convertView.findViewById(R.id.post_image);
-                // populate
-                username.setText(item.getUsername());
-                timestamp.setText(item.getTimestamp().toString());
-                content.setText(item.getContent());
-                //image.setVisibility(View.INVISIBLE);
+                    // get data fields
+                    TextView username = (TextView) convertView.findViewById(R.id.username);
+                    TextView timestamp = (TextView) convertView.findViewById(R.id.timestamp);
+                    TextView content = (TextView) convertView.findViewById(R.id.content);
+                    ImageView image = (ImageView) convertView.findViewById(R.id.post_image);
+                    // populate
+                    username.setText(item.getUsername());
+                    timestamp.setText(item.getTimestamp().toString());
+                    content.setText(item.getContent());
+                    image.setVisibility(View.GONE);
+                }
 
                 return convertView;
             }
             case TWITTER: {
-                if (convertView == null)
+                if (convertView == null) {
                     convertView = inflater.inflate(R.layout.twitter_item, null);
-                // get data fields
-                TextView username = (TextView) convertView.findViewById(R.id.username);
-                TextView timestamp = (TextView) convertView.findViewById(R.id.timestamp);
-                TextView content = (TextView) convertView.findViewById(R.id.content);
-                ImageView image = (ImageView) convertView.findViewById(R.id.post_image);
-                // populate
-                username.setText(item.getUsername());
-                timestamp.setText(item.getTimestamp().toString());
-                content.setText(item.getContent());
-                //image.setVisibility(View.INVISIBLE);
+                    // get data fields
+                    TextView username = (TextView) convertView.findViewById(R.id.username);
+                    TextView timestamp = (TextView) convertView.findViewById(R.id.timestamp);
+                    TextView content = (TextView) convertView.findViewById(R.id.content);
+                    ImageView image = (ImageView) convertView.findViewById(R.id.post_image);
+                    // populate
+                    username.setText(item.getUsername());
+                    timestamp.setText(item.getTimestamp().toString());
+                    content.setText(item.getContent());
+                    image.setVisibility(View.GONE);
+                }
 
                 return convertView;
             }
             case INSTAGRAM: {
-                if (convertView == null)
+                if (convertView == null) {
                     convertView = inflater.inflate(R.layout.instagram_item, null);
-                // get data fields
-                TextView username = (TextView) convertView.findViewById(R.id.username);
-                TextView timestamp = (TextView) convertView.findViewById(R.id.timestamp);
-                ImageView image = (ImageView) convertView.findViewById(R.id.post_image);
-                // populate
-                username.setText(item.getUsername());
-                timestamp.setText(item.getTimestamp().toString());
-                //image.setImageBitmap(item.getImage());
+                    // get data fields
+                    TextView username = (TextView) convertView.findViewById(R.id.username);
+                    TextView timestamp = (TextView) convertView.findViewById(R.id.timestamp);
+                    ImageView image = (ImageView) convertView.findViewById(R.id.post_image);
+                    // populate
+                    username.setText(item.getUsername());
+                    timestamp.setText(item.getTimestamp().toString());
+                    image.setImageBitmap(item.getImage());
+                }
 
                 return convertView;
             }
@@ -104,20 +107,21 @@ public class FeedListAdapter extends BaseAdapter {
                 return convertView;
             }
             case EMAIL: {
-                if (convertView == null)
+                if (convertView == null) {
                     convertView = inflater.inflate(R.layout.email_item, null);
-                // get data fields
-                TextView sender = (TextView) convertView.findViewById(R.id.sender);
-                TextView timestamp = (TextView) convertView.findViewById(R.id.timestamp);
-                TextView preview = (TextView) convertView.findViewById(R.id.preview);
-                TextView service = (TextView) convertView.findViewById(R.id.service);
-                TextView subject = (TextView) convertView.findViewById(R.id.subject);
-                // populate
-                sender.setText(item.getSender());
-                timestamp.setText(item.getTimestamp().toString());
-                preview.setText(item.getPreview());
-                service.setText(item.getEmailPlatform());
-                subject.setText(item.getSubject());
+                    // get data fields
+                    TextView sender = (TextView) convertView.findViewById(R.id.sender);
+                    TextView timestamp = (TextView) convertView.findViewById(R.id.timestamp);
+                    TextView preview = (TextView) convertView.findViewById(R.id.preview);
+                    TextView service = (TextView) convertView.findViewById(R.id.service);
+                    TextView subject = (TextView) convertView.findViewById(R.id.subject);
+                    // populate
+                    sender.setText(item.getSender());
+                    timestamp.setText(item.getTimestamp().toString());
+                    preview.setText(item.getPreview());
+                    service.setText(item.getEmailPlatform());
+                    subject.setText(item.getSubject());
+                }
 
                 return convertView;
             }
