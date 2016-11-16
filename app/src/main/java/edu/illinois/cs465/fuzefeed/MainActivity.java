@@ -211,17 +211,18 @@ public class MainActivity extends AppCompatActivity{
         currAdapter = 0;
 
         // some placeholder posts
-        Post socialItem1 = new Post("here's a social post");
-        Post proItem1 = new Post("business");
-        Post emailItem1 = new Post("here's an email");
+        Post socialItem1 = new Post(Platform.FACEBOOK,"here's a facebook post");
+        Post socialItem2 = new Post(Platform.INSTAGRAM,"here's an instagram post");
+        Post proItem1 = new Post(Platform.TWITTER,"business");
+        Post emailItem1 = new Post(Platform.EMAIL,"here's an email");
+        socialFeedItems.add(socialItem1);
+        socialFeedItems.add(socialItem2);
+        socialFeedItems.add(socialItem2);
+        socialFeedItems.add(socialItem1);
+        socialFeedItems.add(socialItem2);
         socialFeedItems.add(socialItem1);
         socialFeedItems.add(socialItem1);
-        socialFeedItems.add(socialItem1);
-        socialFeedItems.add(socialItem1);
-        socialFeedItems.add(socialItem1);
-        socialFeedItems.add(socialItem1);
-        socialFeedItems.add(socialItem1);
-        socialFeedItems.add(socialItem1);
+        socialFeedItems.add(socialItem2);
         proFeedItems.add(proItem1);
         proFeedItems.add(proItem1);
         proFeedItems.add(proItem1);
