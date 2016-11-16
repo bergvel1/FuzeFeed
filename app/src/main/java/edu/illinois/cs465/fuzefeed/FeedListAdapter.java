@@ -45,17 +45,49 @@ public class FeedListAdapter extends BaseAdapter {
         if (inflater == null)
             inflater = (LayoutInflater) activity
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        /*if (convertView == null)
-            convertView = inflater.inflate(R.layout.feed_item, null);*/
-        if (convertView == null)
-            convertView = inflater.inflate(R.layout.facebook_item, null);
-
-        /*TextView placeholder = (TextView) convertView.findViewById(R.id.placeholder);
 
         Post item = feedItems.get(position);
 
+        switch (item.getPlatform()){
+            case FACEBOOK: {
+                if (convertView == null)
+                    convertView = inflater.inflate(R.layout.facebook_item, null);
+                // populate data fields
+                return convertView;
+            }
+            case TWITTER: {
+                if (convertView == null)
+                    convertView = inflater.inflate(R.layout.twitter_item, null);
+                // populate data fields
+                return convertView;
+            }
+            case INSTAGRAM: {
+                if (convertView == null)
+                    convertView = inflater.inflate(R.layout.instagram_item, null);
+                // populate data fields
+                return convertView;
+            }
+            case LINKEDIN: {
+                if (convertView == null)
+                    convertView = inflater.inflate(R.layout.feed_item, null);
+                return convertView;
+            }
+            case EMAIL: {
+                if (convertView == null)
+                    convertView = inflater.inflate(R.layout.email_item, null);
+                // populate data fields
+                return convertView;
+            }
+        }
+
+
+        /*TextView placeholder = (TextView) convertView.findViewById(R.id.placeholder);
+
         placeholder.setText(item.getContent());*/
 
+        // shouldn't be reached
+        if (convertView == null)
+            convertView = inflater.inflate(R.layout.feed_item, null);
         return convertView;
     }
 }

@@ -1,4 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+
+        android:layout_marginLeft="@dimen/feed_item_margin"
+        android:layout_marginRight="@dimen/feed_item_margin"
+        android:layout_marginTop="@dimen/feed_item_margin"
+        android:background="@drawable/bg_parent_rounded_corner"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_height = "wrap_content"
+            android:layout_width = "match_parent"
+            android:paddingBottom="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp"
+            android:orientation= "vertical">
+
+            <LinearLayout
+                android:layout_height = "25dp"
+                android:layout_width = "match_parent"
+                android:orientation= "horizontal">
+                <TextView
+                    android:text="Brian Kurek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView"
+                    android:layout_weight="18"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:text="7hrs ago"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView1"
+                    android:textSize="10dp"
+                    android:layout_weight="1.91" />
+            </LinearLayout>
+
+            <TextView
+                android:text="This is an example Twitter post for FuzeFeed!"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:textSize="15dp"
+                android:paddingTop="10dp">
+
+            </TextView>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:src="@raw/iphone"
+                android:paddingTop="10dp"
+                android:gravity="">
+            </ImageView>
+
+            <LinearLayout
+                android:layout_height = "match_parent"
+                android:layout_width = "match_parent"
+                android:orientation= "horizontal">
+
+                <Button
+                    android:text="Reply"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/b5"
+                    android:layout_weight="1"
+                    android:textSize="10dp"
+                    style="?android:attr/borderlessButtonStyle"
+                    />
+
+                <Button
+                    android:text="Like"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/b1"
+                    android:layout_weight="1"
+                    android:textSize="10dp"
+                    style="?android:attr/borderlessButtonStyle"
+                    />
+
+                <Button
+                    android:text="Retweet"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/b2"
+                    android:textSize="10dp"
+                    android:layout_weight="1"
+                    style="?android:attr/borderlessButtonStyle"
+                    />
+
+                <Button
+                    android:text="Send"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/b3"
+                    android:layout_weight="1"
+                    android:textSize="10dp"
+                    style="?android:attr/borderlessButtonStyle"
+                    />
+
+                <Button
+                    android:text="t"
+                    android:textAllCaps="false"
+                    android:layout_width="29dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/b4"
+                    android:textSize="10dp"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:background="#ebcfac"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
+
+<!--
+
+<?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -123,4 +257,5 @@
 
 
 </LinearLayout>
+-->
 

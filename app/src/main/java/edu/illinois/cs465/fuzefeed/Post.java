@@ -24,6 +24,10 @@ public class Post {
     public Post(String content){
         this.content = content;
     }
+    public Post(Platform platform, String content){
+        this.platform = platform;
+        this.content = content;
+    }
 
     public Post(Platform platform, String username, Date timestamp, String content, Bitmap image, Bitmap profilePicture) {
         this.platform = platform;
