@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context="com.example.deekshantkaul.xyz.MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_height = "150dp"
+        android:layout_width = "match_parent"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        android:orientation= "vertical">
+
+        <LinearLayout
+            android:layout_height = "50dp"
+            android:layout_width = "match_parent"
+            android:orientation= "horizontal">
+
+            <CheckBox
+                android:id="@+id/check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="Brian Kurek"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:text="Gmail"
+                    android:layout_height = "30dp"
+                    android:layout_width = "match_parent"
+                    android:id="@+id/textView4"
+                    android:textSize="15dp"
+                    android:gravity="left|center"
+                    android:layout_below="@id/textView"
+                    />
+                <TextView
+                    android:text="7hrs ago"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView1"
+                    android:textSize="10dp"
+                    android:layout_toRightOf="@id/textView" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:text="Subject"
+            android:layout_height = "wrap_content"
+            android:layout_width = "match_parent"
+            android:id="@+id/textView2"
+            android:textSize="15dp"
+            />
+
+        <TextView
+            android:text="Yet another example of an email."
+            android:layout_height = "20dp"
+            android:layout_width = "match_parent"
+            android:id="@+id/textView3"
+            android:textSize="10dp"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
