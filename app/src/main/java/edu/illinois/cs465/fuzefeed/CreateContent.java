@@ -11,28 +11,27 @@ import android.widget.Button;
  * Created by karth on 11/15/2016.
  */
 public class CreateContent extends Activity {
-    Button selectPlatformButton;
-    Button backToHomeButton;
+    Button postButton;
+    Button backButton;
 
     public void addListenerOnButton() {
 
         final Context context = this;
 
-        selectPlatformButton = (Button) findViewById(R.id.selectPlatformButton);
-        backToHomeButton = (Button) findViewById(R.id.backToHomeButton);
+        postButton = (Button) findViewById(R.id.postButton);
+        backButton = (Button) findViewById(R.id.backButton);
 
-        selectPlatformButton.setOnClickListener(new View.OnClickListener() {
+        postButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
-
-                Intent intent = new Intent(context, PlatformList.class);
+                Intent intent = new Intent(context, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-
             }
 
         });
-        backToHomeButton.setOnClickListener(new View.OnClickListener() {
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 finish();

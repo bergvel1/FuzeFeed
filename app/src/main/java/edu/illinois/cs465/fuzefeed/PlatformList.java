@@ -7,15 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 /**
  * Created by karth on 11/14/2016.
  */
 
 public class PlatformList extends Activity {
-    Button postButton;
-    Button backToCreateContent;
+    Button continueButton;
+    Button cancelPostButton;
     PostPlatform[] platforms = {new PostPlatform("Facebook"), new PostPlatform("Twitter"), new PostPlatform("Instagram"), new PostPlatform("Reddit")};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,25 +24,21 @@ public class PlatformList extends Activity {
 
         ListView listView = (ListView) findViewById(R.id.platform_list);
         listView.setAdapter(adapter);
-        postButton = (Button) findViewById(R.id.postButton);
-        backToCreateContent = (Button) findViewById(R.id.backToCreateContent);
+        continueButton = (Button) findViewById(R.id.continueButton);
+        cancelPostButton = (Button) findViewById(R.id.cancelPostButton);
         final Context context = this;
-        postButton.setOnClickListener(new View.OnClickListener(){
+        continueButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View arg0) {
-                Toast toast = Toast.makeText(context, "Posted!", Toast.LENGTH_SHORT);
-                toast.show();
-
-                //go back to create post
-                finish();
+                Intent intent = new Intent(context, CreateContent.class);
+                startActivity(intent);
             }
         });
 
-        backToCreateContent.setOnClickListener(new View.OnClickListener(){
+        cancelPostButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View arg0){
-                Intent intent = new Intent(context, CreateContent.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

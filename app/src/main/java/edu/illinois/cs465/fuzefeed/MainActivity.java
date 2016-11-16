@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity{
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, CreateContent.class);
+                Intent intent = new Intent(context, PlatformList.class);
                 startActivity(intent);
             }
         });

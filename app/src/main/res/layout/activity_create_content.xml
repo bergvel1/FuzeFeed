@@ -2,14 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_post"
+        android:textSize="30dp"
+        android:layout_marginBottom="5dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="What do you want to post?"
-        android:id="@+id/contentText"
-        android:layout_weight="0.5" />
+        android:hint="@string/what_do_you_want_to_post"
+        android:id="@+id/contentText" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,15 +24,15 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/selectPlatformButton"
-        android:text="Select Platform"
+        android:id="@+id/backButton"
+        android:text="Back"
         android:layout_weight="1"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/backToHomeButton"
-            android:text="Back to Home"
+            android:id="@+id/postButton"
+            android:text="Post"
             android:layout_weight="1"/>
     </LinearLayout>
 </LinearLayout>
