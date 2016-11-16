@@ -1,5 +1,7 @@
 package edu.illinois.cs465.fuzefeed;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
@@ -113,10 +115,13 @@ public class MainActivity extends AppCompatActivity{
 
     private void preparePostButton(){
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final Context context = this;
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addPost(currAdapter);
+                Intent intent = new Intent(context, CreateContent.class);
+                startActivity(intent);
             }
         });
     }
