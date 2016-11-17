@@ -11,12 +11,12 @@
     tools:showIn="@layout/app_bar_main">
 
     <!--Visible when there are no posts in front of it-->
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:layout_centerInParent="true"
-        android:text="Posts go here!" />
+        android:text="Posts go here!" />-->
 
 
 
