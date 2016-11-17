@@ -1,5 +1,6 @@
 package edu.illinois.cs465.fuzefeed;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.CheckedTextView;
@@ -91,10 +92,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             addAccountButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (!expandList.isGroupExpanded(groupPosition)) expandList.expandGroup(groupPosition);
+                    /*if (!expandList.isGroupExpanded(groupPosition)) expandList.expandGroup(groupPosition);
 
                     MainActivity.addAccount(groupPosition);
-                    notifyDataSetChanged();
+                    notifyDataSetChanged();*/
+                    Intent intent = new Intent(view.getContext(), AddAccountActivity.class);
+                    view.getContext().startActivity(intent);
                 }
             });
         }
