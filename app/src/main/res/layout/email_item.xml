@@ -14,18 +14,21 @@
         android:background="@drawable/bg_parent_rounded_corner"
         android:orientation="vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_height = "wrap_content"
             android:layout_width = "match_parent"
             android:paddingBottom="16dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:paddingTop="16dp"
-            android:orientation= "vertical">
+            >
 
             <LinearLayout
                 android:layout_height = "wrap_content"
                 android:layout_width = "match_parent"
+                android:id="@+id/layoutA"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
                 android:orientation= "horizontal">
 
                 <CheckBox
@@ -63,6 +66,7 @@
                         android:layout_below="@id/timestamp"
                         android:layout_alignRight="@id/timestamp"
                         />
+
                 </RelativeLayout>
 
             </LinearLayout>
@@ -71,6 +75,8 @@
                 android:text="Subject"
                 android:layout_height = "wrap_content"
                 android:layout_width = "match_parent"
+                android:layout_alignLeft="@id/layoutA"
+                android:layout_below="@id/layoutA"
                 android:id="@+id/subject"
                 android:textSize="15dp"
                 />
@@ -79,11 +85,20 @@
                 android:text="Yet another example of an email."
                 android:layout_height = "wrap_content"
                 android:layout_width = "match_parent"
+                android:layout_below="@id/subject"
                 android:id="@+id/preview"
                 android:textSize="10dp"
                 />
 
-        </LinearLayout>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@id/subject"
+                android:background="@null"
+                android:src="@mipmap/ic_delete_black_24dp"/>
+
+        </RelativeLayout>
 
     </RelativeLayout>
 

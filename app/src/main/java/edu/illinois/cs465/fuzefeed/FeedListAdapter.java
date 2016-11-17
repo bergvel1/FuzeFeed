@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -62,7 +64,10 @@ public class FeedListAdapter extends BaseAdapter {
                     ImageView image = (ImageView) convertView.findViewById(R.id.post_image);
                     // populate
                     username.setText(item.getUsername());
-                    timestamp.setText(item.getTimestamp().toString());
+
+                    Format formatter = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");
+                    timestamp.setText(formatter.format(item.getTimestamp()));
+
                     content.setText(item.getContent());
                     image.setVisibility(View.GONE);
                 }
@@ -79,7 +84,10 @@ public class FeedListAdapter extends BaseAdapter {
                     ImageView image = (ImageView) convertView.findViewById(R.id.post_image);
                     // populate
                     username.setText(item.getUsername());
-                    timestamp.setText(item.getTimestamp().toString());
+
+                    Format formatter = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");
+                    timestamp.setText(formatter.format(item.getTimestamp()));
+
                     content.setText(item.getContent());
                     image.setVisibility(View.GONE);
                 }
@@ -95,7 +103,10 @@ public class FeedListAdapter extends BaseAdapter {
                     ImageView image = (ImageView) convertView.findViewById(R.id.post_image);
                     // populate
                     username.setText(item.getUsername());
-                    timestamp.setText(item.getTimestamp().toString());
+
+                    Format formatter = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");
+                    timestamp.setText(formatter.format(item.getTimestamp()));
+
                     image.setImageBitmap(item.getImage());
                 }
 
@@ -117,7 +128,10 @@ public class FeedListAdapter extends BaseAdapter {
                     TextView subject = (TextView) convertView.findViewById(R.id.subject);
                     // populate
                     sender.setText(item.getSender());
-                    timestamp.setText(item.getTimestamp().toString());
+
+                    Format formatter = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");
+                    timestamp.setText(formatter.format(item.getTimestamp()));
+
                     preview.setText(item.getPreview());
                     service.setText(item.getEmailPlatform());
                     subject.setText(item.getSubject());

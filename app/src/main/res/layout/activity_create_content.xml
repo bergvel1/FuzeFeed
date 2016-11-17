@@ -16,6 +16,44 @@
         android:layout_height="wrap_content"
         android:hint="@string/what_do_you_want_to_post"
         android:id="@+id/contentText" />
+
+    <LinearLayout
+        android:layout_height = "200dp"
+        android:layout_width = "match_parent"
+        android:orientation= "horizontal">
+
+        <Button
+            android:text="Tag"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/b1"
+            android:layout_weight="1"
+            android:textSize="15dp"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+        <Button
+            android:text="Check-In"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/b2"
+            android:textSize="15dp"
+            android:layout_weight="1"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+        <Button
+            android:text="Photos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/b3"
+            android:layout_weight="1"
+            android:textSize="15dp"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,3 +73,4 @@
             android:layout_weight="1"/>
     </LinearLayout>
 </LinearLayout>
+
