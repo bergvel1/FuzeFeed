@@ -5,9 +5,9 @@ package edu.illinois.cs465.fuzefeed;
  */
 
 public enum Platform {
-    FACEBOOK,
-    TWITTER,
-    INSTAGRAM,
-    LINKEDIN,
-    EMAIL
+    Facebook,
+    Twitter,
+    Instagram,
+    LinkedIn,
+    Email
 }

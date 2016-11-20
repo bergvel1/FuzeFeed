@@ -54,7 +54,7 @@ public class FeedListAdapter extends BaseAdapter {
         Post item = feedItems.get(position);
 
         switch (item.getPlatform()){
-            case FACEBOOK: {
+            case Facebook: {
                 if (convertView == null) {
                     convertView = inflater.inflate(R.layout.facebook_item, null);
                     // get data fields
@@ -74,7 +74,7 @@ public class FeedListAdapter extends BaseAdapter {
 
                 return convertView;
             }
-            case TWITTER: {
+            case Twitter: {
                 if (convertView == null) {
                     convertView = inflater.inflate(R.layout.twitter_item, null);
                     // get data fields
@@ -94,7 +94,7 @@ public class FeedListAdapter extends BaseAdapter {
 
                 return convertView;
             }
-            case INSTAGRAM: {
+            case Instagram: {
                 if (convertView == null) {
                     convertView = inflater.inflate(R.layout.instagram_item, null);
                     // get data fields
@@ -112,12 +112,12 @@ public class FeedListAdapter extends BaseAdapter {
 
                 return convertView;
             }
-            case LINKEDIN: {
+            case LinkedIn: {
                 if (convertView == null)
                     convertView = inflater.inflate(R.layout.feed_item, null);
                 return convertView;
             }
-            case EMAIL: {
+            case Email: {
                 if (convertView == null) {
                     convertView = inflater.inflate(R.layout.email_item, null);
                     // get data fields

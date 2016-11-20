@@ -15,7 +15,13 @@ import android.widget.ListView;
 public class PlatformList extends Activity {
     Button continueButton;
     Button cancelPostButton;
-    PostPlatform[] platforms = {new PostPlatform("Facebook"), new PostPlatform("Twitter"), new PostPlatform("Instagram")};
+
+    // instead of this, let's fetch the list of current accounts for the feed category that we're trying to post to.
+    PostPlatform[] platforms = {new PostPlatform("Facebook"), new PostPlatform("Twitter"), new PostPlatform("Instagram"),
+            new PostPlatform("LinkedIn")};
+
+    //int feedID = MainActivity.getFeedID();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,5 +1,6 @@
 package edu.illinois.cs465.fuzefeed;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity{
     // stuff for hamburger menu
     private DataCreator dc;
     private DrawerLayout mDrawerLayout;
-    ExpandableListAdapter mMenuAdapter;
+    static ExpandableListAdapter mMenuAdapter;
     ExpandableListView expandableList;
     List<ExpandedMenuModel> listDataHeader;
     HashMap<ExpandedMenuModel, List<Account>> listDataChild;
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity{
     private ListView listView;
 
     // this is not ideal
-    private int currAdapter;
+    private static int currAdapter;
 
     private FeedListAdapter socialListAdapter; // currAdapter -> 0
     private List<Post> socialFeedItems;
@@ -179,16 +180,16 @@ public class MainActivity extends AppCompatActivity{
         item3.setIconName("Email");
         listDataHeader.add(item3);
 
-        Account facebook = new Account(Platform.FACEBOOK,"example facebook",true);
-        Account twitter = new Account(Platform.TWITTER,"example twitter",true);
+        Account facebook = new Account(Platform.Facebook,"example facebook",true);
+        Account twitter = new Account(Platform.Twitter,"example twitter",true);
         socialAccounts.add(facebook);
         socialAccounts.add(twitter);
 
-        Account linkedin = new Account(Platform.LINKEDIN,"example linkedin",true);
+        Account linkedin = new Account(Platform.LinkedIn,"example linkedin",true);
         proAccounts.add(linkedin);
 
-        Account email1 = new Account(Platform.EMAIL,"email1",true);
-        Account email2 = new Account(Platform.EMAIL,"email2",true);
+        Account email1 = new Account(Platform.Email,"email1",true);
+        Account email2 = new Account(Platform.Email,"email2",true);
         emailAccounts.add(email1);
         emailAccounts.add(email2);
 
@@ -279,22 +280,22 @@ public class MainActivity extends AppCompatActivity{
                 });*/
     }
 
-    public static boolean addAccount(int feedID){
+    public static boolean addAccount(int feedID, Account newAccount){
         switch (feedID){
             case 0: {
-                    Account newAccount = new Account(Platform.FACEBOOK,"new facebook",true);
-                    socialAccounts.add(newAccount);
-                    return true;
+                socialAccounts.add(newAccount);
+                mMenuAdapter.notifyDataSetChanged();
+                return true;
             }
             case 1: {
-                    Account newAccount = new Account(Platform.LINKEDIN,"new linkedin",true);
-                    proAccounts.add(newAccount);
-                    return true;
+                proAccounts.add(newAccount);
+                mMenuAdapter.notifyDataSetChanged();
+                return true;
             }
             case 2: {
-                    Account newAccount = new Account(Platform.EMAIL,"new email",true);
-                    emailAccounts.add(newAccount);
-                    return true;
+                emailAccounts.add(newAccount);
+                mMenuAdapter.notifyDataSetChanged();
+                return true;
             }
         }
         Log.d("DEBUG","Error adding account");
@@ -355,4 +356,11 @@ public class MainActivity extends AppCompatActivity{
         Log.d("DEBUG","Bad getAccounts()");
         return null;
     }
+
+    // returns ID of which feed is currently selected
+    public static int getFeedID(){
+        return currAdapter;
+    }
 }
+
+

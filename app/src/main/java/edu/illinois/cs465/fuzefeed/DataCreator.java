@@ -27,21 +27,21 @@ public final class DataCreator {
 
         facebookPosts = new ArrayList<>();
 
-        getFacebookPosts().add(new Post(Platform.FACEBOOK,
+        getFacebookPosts().add(new Post(Platform.Facebook,
                 "Brian Kurek",
                 new Date(1476381531000L),
                 "This is an example Facebook post for FuzeFeed!",
                 null,
                 BitmapFactory.decodeResource(context.getResources(), R.raw.placeholder)));
 
-        getFacebookPosts().add(new Post(Platform.FACEBOOK,
+        getFacebookPosts().add(new Post(Platform.Facebook,
                 "David Bergvelt",
                 new Date(1478368731000L),
                 "Wow this new FuzeFeed app is amazing. I recommend everyone download it and give it a shot.",
                 null,
                 BitmapFactory.decodeResource(context.getResources(), R.raw.placeholder)));
 
-        getFacebookPosts().add(new Post(Platform.FACEBOOK,
+        getFacebookPosts().add(new Post(Platform.Facebook,
                 "Karthik Bala",
                 new Date(1477936731000L),
                 "I can't believe its Halloween already. I can't wait for fall break.",
@@ -50,21 +50,21 @@ public final class DataCreator {
 
         twitterPosts = new ArrayList<>();
 
-        getTwitterPosts().add(new Post(Platform.TWITTER,
+        getTwitterPosts().add(new Post(Platform.Twitter,
                 "Deekshant Kaul",
                 new Date(1478541531000L),
                 "Seriously guys, this app NEEDS to suppport email",
                 null,
                 BitmapFactory.decodeResource(context.getResources(), R.raw.placeholder)));
 
-        getTwitterPosts().add(new Post(Platform.TWITTER,
+        getTwitterPosts().add(new Post(Platform.Twitter,
                 "Pallavi Srivastava",
                 new Date(1479059931000L),
                 "Guys it's almost fall break. I need this week off.",
                 null,
                 BitmapFactory.decodeResource(context.getResources(), R.raw.placeholder)));
 
-        getTwitterPosts().add(new Post(Platform.TWITTER,
+        getTwitterPosts().add(new Post(Platform.Twitter,
                 "Karthik Bala",
                 new Date(1477936731000L),
                 "Just in case you didn't see my Facebook post, it's Halloween.",
@@ -73,21 +73,21 @@ public final class DataCreator {
 
         instagramPosts = new ArrayList<>();
 
-        getInstagramPosts().add(new Post(Platform.INSTAGRAM,
+        getInstagramPosts().add(new Post(Platform.Instagram,
                 "Brian Kurek",
                 new Date(1476381531000L),
                 null,
                 BitmapFactory.decodeResource(context.getResources(), R.raw.iphone),
                 BitmapFactory.decodeResource(context.getResources(), R.raw.placeholder)));
 
-        getInstagramPosts().add(new Post(Platform.INSTAGRAM,
+        getInstagramPosts().add(new Post(Platform.Instagram,
                 "David Bergvelt",
                 new Date(1479059931000L),
                 null,
                 BitmapFactory.decodeResource(context.getResources(), R.raw.flower),
                 BitmapFactory.decodeResource(context.getResources(), R.raw.placeholder)));
 
-        getInstagramPosts().add(new Post(Platform.INSTAGRAM,
+        getInstagramPosts().add(new Post(Platform.Instagram,
                 "Deekshant Kaul",
                 new Date(1476381531000L),
                 null,
@@ -96,21 +96,21 @@ public final class DataCreator {
 
         linkedinPosts = new ArrayList<>();
 
-        getLinkedinPosts().add(new Post(Platform.LINKEDIN,
+        getLinkedinPosts().add(new Post(Platform.LinkedIn,
                 "Deekshant Kaul",
                 new Date(1478541531000L),
                 "Check out this cool article about working at Microsoft.",
                 null,
                 BitmapFactory.decodeResource(context.getResources(), R.raw.placeholder)));
 
-        getLinkedinPosts().add(new Post(Platform.LINKEDIN,
+        getLinkedinPosts().add(new Post(Platform.LinkedIn,
                 "Pallavi Srivastava",
                 new Date(1479059931000L),
                 "Here's one of my favorite articles about interview tips!",
                 null,
                 BitmapFactory.decodeResource(context.getResources(), R.raw.placeholder)));
 
-        getLinkedinPosts().add(new Post(Platform.LINKEDIN,
+        getLinkedinPosts().add(new Post(Platform.LinkedIn,
                 "Karthik Bala",
                 new Date(1477936731000L),
                 "Another example LinkedIn post.",
@@ -124,63 +124,63 @@ public final class DataCreator {
                 "This is an example email.",
                 new Date(1477936731000L),
                 "Gmail",
-                Platform.EMAIL));
+                Platform.Email));
 
         getEmails().add(new Post("David Bervelt",
                 "Another email",
                 "Yet another example of an email.",
                 new Date(1479059931000L),
                 "Gmail",
-                Platform.EMAIL));
+                Platform.Email));
 
         getEmails().add(new Post("Deekshant Kaul",
                 "We did it",
                 "Guys look, we actually support viewing emails.",
                 new Date(1479059931000L),
                 "Hotmail",
-                Platform.EMAIL));
+                Platform.Email));
 
         getEmails().add(new Post("Brian Kurek",
                 "Example subject",
                 "This is an example email.",
                 new Date(1477936731000L),
                 "Gmail",
-                Platform.EMAIL));
+                Platform.Email));
 
         getEmails().add(new Post("David Bervelt",
                 "Another email",
                 "Yet another example of an email.",
                 new Date(1479059931000L),
                 "Gmail",
-                Platform.EMAIL));
+                Platform.Email));
 
         getEmails().add(new Post("Deekshant Kaul",
                 "We did it",
                 "Guys look, we actually support viewing emails.",
                 new Date(1479059931000L),
                 "Hotmail",
-                Platform.EMAIL));
+                Platform.Email));
 
         getEmails().add(new Post("Brian Kurek",
                 "Example subject",
                 "This is an example email.",
                 new Date(1477936731000L),
                 "Gmail",
-                Platform.EMAIL));
+                Platform.Email));
 
         getEmails().add(new Post("David Bervelt",
                 "Another email",
                 "Yet another example of an email.",
                 new Date(1479059931000L),
                 "Gmail",
-                Platform.EMAIL));
+                Platform.Email));
 
         getEmails().add(new Post("Deekshant Kaul",
                 "We did it",
                 "Guys look, we actually support viewing emails.",
                 new Date(1479059931000L),
                 "Hotmail",
-                Platform.EMAIL));
+                Platform.Email));
 
         socialPosts = new ArrayList<>();
         getSocialPosts().addAll(facebookPosts);
@@ -220,16 +220,16 @@ public final class DataCreator {
 
     public void addPost(Platform platform, Post p) {
         switch(platform) {
-            case FACEBOOK:
+            case Facebook:
                 facebookPosts.add(p);
                 break;
-            case TWITTER:
+            case Twitter:
                 twitterPosts.add(p);
                 break;
-            case INSTAGRAM:
+            case Instagram:
                 instagramPosts.add(p);
                 break;
-            case LINKEDIN:
+            case LinkedIn:
                 linkedinPosts.add(p);
                 break;
         }

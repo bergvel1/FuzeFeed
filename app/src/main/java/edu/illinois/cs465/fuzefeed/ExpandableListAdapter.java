@@ -82,25 +82,27 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(final int groupPosition, final boolean isExpanded, View convertView, ViewGroup parent) {
         final ExpandedMenuModel headerTitle = (ExpandedMenuModel) getGroup(groupPosition);
-        if (convertView == null) {
-            LayoutInflater infalInflater = (LayoutInflater) this.mContext
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.listheader, null);
+        // NOTE: removed (convertView == null) check here due to issues with wrong groupPosition value
+        LayoutInflater infalInflater = (LayoutInflater) this.mContext
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        convertView = infalInflater.inflate(R.layout.listheader, null);
 
-            final ImageButton addAccountButton = (ImageButton) convertView.findViewById(R.id.accountaddbutton);
-            addAccountButton.setFocusable(false);
-            addAccountButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    /*if (!expandList.isGroupExpanded(groupPosition)) expandList.expandGroup(groupPosition);
+        final ImageButton addAccountButton = (ImageButton) convertView.findViewById(R.id.accountaddbutton);
+        addAccountButton.setFocusable(false);
+        addAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*
+                MainActivity.addAccount(groupPosition);
+                notifyDataSetChanged();*/
+                Log.d("DEBUG","Add account button clicked:" + groupPosition);
+                Intent intent = new Intent(view.getContext(), AddAccountActivity.class);
+                intent.putExtra("FEED_ID", groupPosition);
+                view.getContext().startActivity(intent);
+                if (!expandList.isGroupExpanded(groupPosition)) expandList.expandGroup(groupPosition);
+            }
+        });
 
-                    MainActivity.addAccount(groupPosition);
-                    notifyDataSetChanged();*/
-                    Intent intent = new Intent(view.getContext(), AddAccountActivity.class);
-                    view.getContext().startActivity(intent);
-                }
-            });
-        }
         TextView lblListHeader = (TextView) convertView
                 .findViewById(R.id.submenu);
         lblListHeader.setTypeface(null, Typeface.BOLD);
