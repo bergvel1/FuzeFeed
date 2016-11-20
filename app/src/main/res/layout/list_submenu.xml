@@ -6,7 +6,7 @@
 
     <Space
         android:id="@+id/leftspacer"
-        android:layout_width="25dp"
+        android:layout_width="45dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"/>
 

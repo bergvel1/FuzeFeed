@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity{
         ExpandedMenuModel item3 = new ExpandedMenuModel();
         item3.setIconName("Email");
         listDataHeader.add(item3);
-        /*
+
         Account facebook = new Account(Platform.FACEBOOK,"example facebook",true);
         Account twitter = new Account(Platform.TWITTER,"example twitter",true);
         socialAccounts.add(facebook);
@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity{
         Account email1 = new Account(Platform.EMAIL,"email1",true);
         Account email2 = new Account(Platform.EMAIL,"email2",true);
         emailAccounts.add(email1);
-        emailAccounts.add(email2);*/
+        emailAccounts.add(email2);
 
         listDataChild.put(listDataHeader.get(0), socialAccounts);// Header, Child data
         listDataChild.put(listDataHeader.get(1), proAccounts);
