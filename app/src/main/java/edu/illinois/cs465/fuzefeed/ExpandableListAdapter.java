@@ -132,8 +132,27 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         CheckedTextView txtListChild = (CheckedTextView) convertView
                 .findViewById(R.id.submenu);
+        ImageView accountIcon = (ImageView) convertView.findViewById(R.id.account_icon);
 
         txtListChild.setText(childAccount.getUsername());
+        switch (childAccount.getPlatform()){
+            case Facebook:
+                accountIcon.setImageResource(R.mipmap.fb);
+                break;
+            case Twitter:
+                accountIcon.setImageResource(R.mipmap.twitter);
+                break;
+            case Instagram:
+                accountIcon.setImageResource(R.mipmap.instagram);
+                break;
+            case LinkedIn:
+                accountIcon.setImageResource(R.mipmap.linkedin);
+                break;
+            case Email:
+                accountIcon.setImageResource(R.mipmap.email);
+                break;
+        }
+
 
         // determine if account should be highlighted
         Account thisAccount = (MainActivity.getAccounts(groupPosition)).get(childPosition);

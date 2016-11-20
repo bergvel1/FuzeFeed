@@ -89,15 +89,15 @@
                     style="?android:attr/borderlessButtonStyle"
                     />
 
-                <Button
-                    android:text="I"
+                <ImageView
+                    android:src="@mipmap/instagram"
                     android:textAllCaps="false"
                     android:layout_width="29dp"
                     android:layout_height="match_parent"
                     android:id="@+id/b4"
                     android:textSize="10dp"
                     style="?android:attr/borderlessButtonStyle"
-                    android:background="#ebcfac"
+                    android:background="@null"
                     />
 
             </LinearLayout>
