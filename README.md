@@ -2,10 +2,8 @@
 CS465 Project
 
 # current to-dos
-There's a strange bug happening with adding accounts where new accounts are sometimes (but not always) put in the wrong category. Not sure what is causing this.
+Create separate lists of posts for each account. Determine way of merging these (probably based on timestamp order?) into larger social, professional, or email feeds.
 
-Need to move lots of stuff out of MainActivity. This means moving to using DataCreator for the feed data, and implementing something similar for the account data.
+Add functionality to post creation screen.
 
-Add full layout for Post. 
-
-Implement post creation and add account screens.
+Add post interaction functionality (likes, deleting emails, etc).
