@@ -18,31 +18,14 @@
         android:layout_centerInParent="true"
         android:text="Posts go here!" />-->
 
-    <LinearLayout
+    <android.support.design.widget.BottomNavigationView
         android:id="@+id/selector_bar"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/feed_item_border"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/social_selector"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Social"/>
-        <Button
-            android:id="@+id/pro_selector"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Professional"/>
-        <Button
-            android:id="@+id/email_selector"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Email"/>
-    </LinearLayout>
+        android:gravity="center"
+        app:menu="@menu/bottom_nav_items">
+    </android.support.design.widget.BottomNavigationView>
 
     <ListView
         android:id="@+id/list"

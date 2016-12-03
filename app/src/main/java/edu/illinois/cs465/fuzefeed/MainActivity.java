@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity{
     private Button proSelector;
     private Button emailSelector;
 
+    private BottomNavigationView bottomNav;
+
     // lists of different types of accounts
     private static List<Account> socialAccounts;
     private static List<Account> proAccounts;
@@ -69,6 +73,7 @@ public class MainActivity extends AppCompatActivity{
 
         // toolbar and hamburger menu setup
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        bottomNav = (BottomNavigationView) findViewById(R.id.selector_bar);
         setSupportActionBar(toolbar);
         final ActionBar ab = getSupportActionBar();
         /* to set the menu icon image*/
@@ -131,6 +136,31 @@ public class MainActivity extends AppCompatActivity{
 
     private void prepareFeedSelectors(){
         // buttons to choose between feeds
+
+        bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.menu_social:
+                        listView.setAdapter(socialListAdapter);
+                        currAdapter = 0;
+                        break;
+                    case R.id.menu_professional:
+                        listView.setAdapter(proListAdapter);
+                        currAdapter = 1;
+                        break;
+                    case R.id.menu_email:
+                        listView.setAdapter(emailListAdapter);
+                        currAdapter = 2;
+                        break;
+                }
+
+                return true;
+            }
+        });
+
+
+        /*
         socialSelector = (Button) findViewById(R.id.social_selector);
         proSelector = (Button) findViewById(R.id.pro_selector);
         emailSelector = (Button) findViewById(R.id.email_selector);
@@ -156,7 +186,7 @@ public class MainActivity extends AppCompatActivity{
                 listView.setAdapter(emailListAdapter);
                 currAdapter = 2;
             }
-        });
+        }); */
     }
 
     private void prepareListData() {
