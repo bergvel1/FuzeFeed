@@ -244,11 +244,13 @@ public class MainActivity extends AppCompatActivity{
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_add_post) {
-            Intent intent = new Intent(this, PlatformList.class);
-            startActivity(intent);
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                return true;
+            case R.id.action_add_post:
+                Intent intent = new Intent(this, PlatformList.class);
+                startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
