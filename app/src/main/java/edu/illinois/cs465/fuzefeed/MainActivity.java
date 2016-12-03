@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity{
 
         // setup button for adding posts
         dc = new DataCreator(this);
-        preparePostButton();
 
         // toolbar and hamburger menu setup
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -114,19 +113,6 @@ public class MainActivity extends AppCompatActivity{
 
         // generate fake feed data
         prepareDummyFeeds();
-    }
-
-    private void preparePostButton(){
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        final Context context = this;
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, PlatformList.class);
-                startActivity(intent);
-            }
-        });
     }
 
     private void prepareFeedSelectors(){
@@ -258,11 +244,13 @@ public class MainActivity extends AppCompatActivity{
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
-                return true;
+        int id = item.getItemId();
+
+        if (id == R.id.action_add_post) {
+            Intent intent = new Intent(this, PlatformList.class);
+            startActivity(intent);
         }
+
         return super.onOptionsItemSelected(item);
     }
 
