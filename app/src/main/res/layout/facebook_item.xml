@@ -75,9 +75,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/b1"
                     android:layout_weight="1"
-                    android:textSize="15dp"
-                    android:background="#2b3d5b"
-                    style="?android:attr/borderlessButtonStyle"
+                    android:textSize="12dp"
                     />
 
                 <Button
@@ -85,10 +83,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/b2"
-                    android:textSize="15dp"
-                    android:background="#2b3d5b"
+                    android:textSize="12dp"
                     android:layout_weight="1"
-                    style="?android:attr/borderlessButtonStyle"
                     />
 
                 <Button
@@ -97,9 +93,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/b3"
                     android:layout_weight="1"
-                    android:textSize="15dp"
-                    android:background="#2b3d5b"
-                    style="?android:attr/borderlessButtonStyle"
+                    android:textSize="12dp"
                     />
 
                 <ImageView
@@ -109,6 +103,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/b4"
                     android:textSize="10dp"
+                    android:paddingLeft="5dp"
                     style="?android:attr/borderlessButtonStyle"
                     android:background="@null"
                     />
