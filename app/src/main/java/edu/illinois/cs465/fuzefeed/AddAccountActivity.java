@@ -19,10 +19,10 @@ public class AddAccountActivity extends AppCompatActivity {
         final int feedID = extras.getInt("FEED_ID"); // null pointer danger here!
 
         TextView addAccountHeader = (TextView) findViewById(R.id.add_account_header);
-        if(feedID == 0) addAccountHeader.setText("Add Social Account");
-        if(feedID == 1) addAccountHeader.setText("Add Professional Account");
+        if(feedID == 0) addAccountHeader.setText("Add Existing Social Account");
+        if(feedID == 1) addAccountHeader.setText("Add Existing Professional Account");
         if(feedID == 2){
-            addAccountHeader.setText("Add Email Account");
+            addAccountHeader.setText("Add Existing Email Account");
             LinearLayout platformRow = (LinearLayout) findViewById(R.id.platform_row);
             platformRow.setVisibility(LinearLayout.INVISIBLE);
         }
